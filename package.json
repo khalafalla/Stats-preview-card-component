@@ -1,0 +1,12 @@
+{
+  "name": "stats-preview-card-component",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "Watch-sass": "sass --no-source-map --watch sass/main.scss:css/main.min.css --style compressed",
+    "Pug-watch": "pug pug/index.pug -w -o ./html"
+  },
+  "author": "",
+  "license": "ISC"
+}
