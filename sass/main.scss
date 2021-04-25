@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
 
+@import './utils/variables';
+@import './utils/functions';
+@import './utils/mixins';
+
 * {
     padding: 0;
     margin: 0;
@@ -18,31 +22,80 @@
         height: 60%;
         display: inherit;
         margin: 0 auto;
+    
+        @include respond(phone) {
+            display: flex;
+            flex-direction: column-reverse;
+            height: 90%;
+        }
+
         & .details {
-            padding: 10px;
+            padding: 60px;
+
+            @include respond(tab-land) {
+                padding: 20px!important;
+            }
+            @include respond(tab-port) {
+                padding: 10px!important;
+            }
+            @include respond(phone) {
+                padding: 5px!important;
+            }
+            @include respond(big-desktop) {
+            }
+
+            background-color: $dark_desaturated_blue;
             & * {
                 padding: 5px;
             }
             & .title {
-
+                color: $white;
+                font-family: $Lexend_deca;
+                padding: 10px
             }
-            & .description {}
+            & .description {
+                color: $slightly_transparent_white;
+                font-family: $inter-font-family;
+                padding: 10px
+            }
             & .col-parent {
                 display: flex;
+                @include respond(phone) {
+                    flex-direction: column;
+                    margin: 0 auto;
+                }
                 & .col {
-                    width: calc(100% / 3);
+                    @include respond(phone) {
+                        text-align: center;
+                    }
+                    & .title {
+                        color: $white;
+                        font-family: $Lexend_deca;
+                        padding: 10px
+                    }
+                    & .description {
+                        color: $slightly_transparent_white;
+                        font-family: $inter-font-family;
+                        padding: 10px
+                    }
                 }
             }
         }
         & .image {
-            background-image: url("../images/image-header-desktop.jpg");
+            background-image: linear-gradient(opacity($soft_violet, .5), opacity($soft_violet, .5)), url("../images/image-header-desktop.jpg") ;
             width: 100%;
-            height: 100%;
             background-size: cover;
+            background-position: top;
+            @include respond(phone) {
+                height: 250px;
+            }
         }
     }
     & .half {
         max-width: 50%;
         height: 100%;
+        @include respond(phone) {
+            max-width: 100%;
+        }
     }
 }

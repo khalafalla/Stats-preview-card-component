@@ -1,1 +1,5 @@
-// New shit
+// Function to make Opacity
+@function opacity($color, $opacity) {
+    @return rgba($color, $opacity);
+}
+
